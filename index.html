@@ -8,9 +8,9 @@
 </head>
 <body>
     <header>
-        <div class="logoContainer">
+        <figure class="logoContainer">
             <img src="/assets/logo.jpeg" alt="logo">
-        </div>
+        </figure>
         <nav>
             <ul>
                 <li><a>Oferta</a></li>
@@ -19,6 +19,44 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <section class="register">
+            <h2>Zarejestruj się!</h2>
+            <form action="" method="post" class="registerForm">
+                <div class="formDataContainer">
+                    <label for="login">Login: </label>
+                    <input type="text" name="login" id="login">
+                </div>
+                <div class="formDataContainer">
+                    <label for="password">Hasło: </label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="formDataContainer">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="formDataContainer">
+                    <label for="firstName">Imię: </label>
+                    <input type="text" name="firstName" id="firstName">
+                </div>
+                <div class="formDataContainer">
+                    <label for="lastName">Nazwisko: </label>
+                    <input type="text" name="lastName" id="lastName">
+                </div>
+                <div class="formDataContainer">
+                    <label for="phone">Numer telefonu: </label>
+                    <input type="number" name="phone" id="phone">
+                </div>
+                <div class="formDataContainer">
+                    <label for="dateOfBirth">Data urodzenia: </label>
+                    <input type="date" name="dateOfBirth" id="dateOfBirth">
+                </div>
+                <div class="formDataContainer">
+                    <input type="submit" name="confirmRegisterForm" id="confirmRegisterForm" value="Zarejestruj!">
+                </div>
+            </form>
+        </section>
+    </main>
 
     
 </body>
