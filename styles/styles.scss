@@ -25,28 +25,94 @@ body{
             }
         }
         nav{
-            flex-basis: 70%;
+            flex-basis: 85%;
+            height: 100%;
+            display: flex;
+            align-items: center;
             ul{
+                flex-basis: 100%;
+                height: 50%;
                 display: flex;
                 justify-content: space-around;
                 list-style: none;
-                a{
+                align-items: center;
+                li{
+                    flex-basis: 20%;
+                    height: 50%;
+                    padding: 20px 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    a{
+                        font-size: 1.8rem;
+                        cursor: pointer;
+                        flex-basis: 100%;
+                        text-align: center;
+                    }
+                }
+                .registerButton {
                     font-size: 1.8rem;
                     cursor: pointer;
-                }
+                    border-radius: 10px;
+                    border: none;
+                    background-color: lightblue;
+                    }
             }
         }
-        .registerButton{
-            flex-basis:15%;
-            button{
-                font-size: 1.8rem;
+        
+        .hamburgerMenu{
+            display: none;
+            margin-right: 2%;
+            i{
+                font-size: 2.5rem;
                 cursor: pointer;
-                padding:10px 10px;
-                border-radius: 10px;
-                border: none;
             }
         }
     }
-}
+    main{
+        .register{
+            display: none;
+        }
+    }
 
+}
+@media screen and (max-width: 800px){
+    body{
+        header{
+            padding: 0px 0px;
+            nav {
+                display: none;  
+                position: absolute;
+                top: 12vh;
+                height: 88vh;
+                width: 100vw;
+                ul {
+                    flex-direction: column;
+                    align-items: center;
+                    height: 100%; 
+                    justify-content: flex-start;
+                    li{
+                        margin-top: 10%;
+                        width:40%;
+                        flex-basis: 10%;
+                    }
+                    }
+                }
+           
+            .hamburgerMenu{
+                display: block;
+            }
+            }
+
+        .active{
+            display: flex;
+        }
+        }
+    }      
+
+
+//helpers
+ .visible {
+     visibility: visible;
+ }
 
