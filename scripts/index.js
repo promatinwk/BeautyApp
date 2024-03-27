@@ -13,7 +13,7 @@ const showMenuOnMobile = hamburgerMenu.addEventListener('click',()=>{
 const showRegisterForm = registerBtn.addEventListener('click',()=>{
     formVisible = !formVisible;
     if (formVisible){
-        registerForm.style.display = 'block';
+        registerForm.style.display = 'flex';
     } else{
         registerForm.style.display = 'none';
     }
