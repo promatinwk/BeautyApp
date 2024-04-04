@@ -70,8 +70,116 @@ body{
         }
     }
     main{
+        min-height: 88vh;
+        display: flex;
+        flex-direction: column;
+        .introduction{
+            width: 100%;
+            height: 88vh;
+            display: flex;
+            .about{
+                text-align: center;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 10%;
+                h1{
+                    font-size:4.2rem;
+                }
+                p{
+                    font-size: 3.2rem;
+                }
+            }
+            .ourPlace{
+                display: flex;
+                justify-content: flex-end;
+                flex-basis: 50%;
+                height: 100%;
+                img{
+                    width: auto;
+                    height: 100%;
+                }
+            }
+        }
+        .offer{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            h1{
+                flex-basis: 20%;
+            }
+            .offer-slider{
+                flex-basis:60%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding:0 1%;
+                .offer-carousel{
+                height: 100%;
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 15px;
+                .offer-image{
+                    cursor: pointer;
+                    width: 450px;
+                    height: 100%;
+                    
+                    object-fit: cover;
+                }
+            }
+        }
+    }
         .register{
             display: none;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            height: 88vh;
+            position: absolute;
+            background-color: #fff;
+            h2{
+                font-size: 3rem;
+                text-transform: uppercase;
+                margin: 3rem;
+            }
+            .registerForm{
+                display: flex;
+                flex-direction: column;
+                width:50%;
+                padding: 5% 10%;
+                border: 1px solid #0f084b;
+                border-radius: 10%;
+                .formDataContainer{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 5%;
+                    label{
+                        flex-basis: 40%;
+                        font-size: 1.8rem;
+                    }
+                    input{
+                        flex-basis: 60%;
+                        font-size: 1.8rem;
+                        border-radius: 10px;
+                        border:1px solid #0f084b;
+                        
+                    }
+                    #confirmRegisterForm{
+                            margin-top: 5%;
+                            padding: 10px;
+                            flex-basis:50%;
+                            margin-left: 25%;
+                            text-transform: uppercase;
+                            border:2px solid #c9a227;
+                            background-color: #fad643;
+                            color: #0f084b;
+                            font-weight: 500;
+                        }
+
+                }
+            }
         }
     }
 
@@ -86,6 +194,7 @@ body{
                 top: 12vh;
                 height: 88vh;
                 width: 100vw;
+                background-color: #fff;
                 ul {
                     flex-direction: column;
                     align-items: center;
@@ -112,7 +221,5 @@ body{
 
 
 //helpers
- .visible {
-     visibility: visible;
- }
+
 

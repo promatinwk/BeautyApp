@@ -1,0 +1,20 @@
+{
+  "name": "beautyfront",
+  "version": "1.0.0",
+  "description": "SP made in HTML + SCSS + Vanilla Javascript (Frontend) + Node/Express/MongoDB (Backend)",
+  "main": "scripts/server.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "author": "Mateusz Nowak",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0"
+  }
+}
