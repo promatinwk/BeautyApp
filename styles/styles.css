@@ -112,6 +112,9 @@ body main .offer {
 }
 body main .offer h1 {
   flex-basis: 20%;
+  font-size: 2.5rem;
+  margin-top: 5%;
+  text-align: center;
 }
 body main .offer .offer-slider {
   flex-basis: 60%;
@@ -125,12 +128,57 @@ body main .offer .offer-slider .offer-carousel {
   grid-template-columns: repeat(6, 1fr);
   gap: 15px;
 }
-body main .offer .offer-slider .offer-carousel .offer-image {
+body main .offer .offer-slider .offer-carousel .offer-anchor .offer-image {
   cursor: pointer;
   width: 450px;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  position: relative;
+}
+body main .workers {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body main .workers h1 {
+  flex-basis: 10%;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 5%;
+  border-bottom: 1px solid black;
+}
+body main .workers .workers-list {
+  margin-top: 5%;
+  position: relative;
+  justify-content: space-around;
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+}
+body main .workers .workers-list .worker {
+  cursor: pointer;
+  text-align: center;
+}
+body main .workers .workers-list .worker .worker-name, body main .workers .workers-list .worker .worker-profession {
+  font-size: 1.8rem;
+}
+body main .workers .workers-list .worker img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+body main .workers .workers-list .worker .worker-description {
+  position: absolute;
+  left: 0;
+  padding: 0 10%;
+  top: 50%;
+  font-size: 2rem;
+  border: 1px solid black;
+  display: none;
 }
 body main .register {
   display: none;
