@@ -258,4 +258,7 @@ body main .register .registerForm .formDataContainer #confirmRegisterForm {
   body .active {
     display: flex;
   }
+}
+.selected-worker {
+  border: 5px solid #c9a227;
 }/*# sourceMappingURL=styles.css.map */
