@@ -18,43 +18,19 @@
             <ul>
                 <li><a>Oferta</a></li>
                 <li><a>Kontakt</a></li>
-                <li><a>Zapisz się</a></li>
+                <li class="visitButton"><a>Zapisz się</a></li>
+                <li class="loginButton"><a>Zaloguj</a></li>
                 <li class="registerButton">
                     <a>Dołącz do nas!</a>
                 </li>
+                <li id="welcomeMessage"></li>
             </ul>
-        </nav>
-        
+        </nav> 
         <div class="hamburgerMenu">
             <i class="fa-solid fa-bars"></i>
         </div>
     </header>
     <main>
-        <section class="introduction">
-            <div class="about">
-                <h1>Witaj w Beauty Salon!</h1>
-                <p>To miejsce powstało specjalnie dla Ciebie. To tutaj zaznasz relaksu i spokoju.
-                    Nasza wykwalifikowana kadra zadba o Ciebie tak, abyś poczuła się tak jak zawsze powinnaś - piękna, wolna oraz szczęśliwa.
-                    Zapoznaj się z naszą ofertą.
-                </p>
-            </div>
-            <figure class="ourPlace">
-                <img src="/assets/pexels-mati-mango-2528695.jpg" alt="ourMotto">
-            </figure>
-        </section>
-        <section class="offer">
-            <h1>Zapoznaj się z naszą ofertą</h1>
-            <div class="offer-slider">
-                <div class="offer-carousel">
-                    <a href="#" class="offer-anchor"><img src="./assets/manicure.jpg" alt="manicure-offer" class="offer-image"></a>
-                    <a href="#" class="offer-anchor"><img src="./assets/bath.jpg" alt="bath-offer" class="offer-image"></a>
-                    <a href="#" class="offer-anchor"><img src="./assets/facemask.jpg" alt="facemassage-offer" class="offer-image"></a>
-                    <a href="#" class="offer-anchor"><img src="./assets/facemask2.jpg" alt="facemask-offer" class="offer-image"></a>
-                    <a href="#" class="offer-anchor"><img src="./assets/laser.jpg" alt="laser-offer" class="offer-image"></a>
-                    <a href="#" class="offer-anchor"><img src="./assets/massage.jpg" alt="massage-offer" class="offer-image"></a>
-                </div>
-            </div>
-        </section>
         <section class="workers">
             <h1>Poznaj nas</h1>
             <div class="workers-list">
@@ -107,11 +83,41 @@
             </div>
         </section>
         <section class="user">
-            <figure class="user-photo"></figure>
-            <p class="user-name"></p>
-            <ul class="user-reservations"></ul>
-            <ul class="user-opinions"></ul>
+            <h2>User Information</h2>
+            <div id="userInfo">
+                <p class="userFirstName"></p>
+                <p class="userLastName"></p>
+                <p class="userEmail"></p>
+                <p class="userPhoneNumber"></p>
+            </div>
+            <h2>Booked Visits</h2>
+            <ul id="bookedVisits"></ul>
+            <div class="userProfileBtns">
+                <button class="changeFirstName">Zmień imię</button>
+                <button class="changeLastName">Zmień nazwisko</button>
+                <button class="changeEmial">Zmień email</button>
+                <button class="changePhoneNumber">Zmień numer telefonu</button>
+                <button class="changePassword">Zmień hasło</button>
+            </div>
         </section>
+        <!--to do - logowanie-->
+        <section class="login">
+            <h2>Zaloguj się</h2>
+                <form id="loginForm">
+                    <div class="formDataContainer">
+                        <label for="loginUsername">Login: </label>
+                        <input type="text" id="loginUsername">
+                    </div>
+                    <div class="formDataContainer">
+                        <label for="loginPassword">Hasło: </label>
+                        <input type="password" id="loginPassword">
+                    </div>
+                    <div class="formDataContainer">
+                        <button type="submit">Zaloguj</button>
+                    </div>
+                </form>
+        </section>
+        <!--to do - dla zalogowanych uzytkownikow - mozliwosc umowienia sie do wybranej kosmetyczki-->
         <section class="register">
             <h2>Zarejestruj się!</h2>
             <form action="" method="post" class="registerForm">
@@ -140,15 +146,41 @@
                     <input type="number" name="phone" id="phone">
                 </div>
                 <div class="formDataContainer">
-                    <label for="dateOfBirth">Data urodzenia: </label>
-                    <input type="date" name="dateOfBirth" id="dateOfBirth">
-                </div>
-                <div class="formDataContainer">
                     <input type="submit" name="confirmRegisterForm" id="confirmRegisterForm" value="Zarejestruj!">
                 </div>
             </form>
         </section>
+        <section class="visit">
+            <h2>Book a Visit</h2>
+            <form id="bookingForm">
+                <div>
+                    <label for="serviceSelect">Usługa: </label>
+                    <select id="serviceSelect" required>
+                        <option value="">Wybierz usługę</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="workerSelect">Pracownik: </label>
+                    <select id="workerSelect" required>
+                        <option value="">Wybierz pracownika</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="visitDate">Data: </label>
+                    <input type="date" id="visitDate" required>
+                </div>
+                <div>
+                    <button type="submit">Zarezerwuj wizytę</button>
+                </div>
+            </form>
+        </section>
     </main>
+
+    <!--
+        To do:
+        -logowanie
+        -baza danych
+    -->
 
 <script src="/scripts/index.js"></script>   
 </body>

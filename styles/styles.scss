@@ -73,69 +73,6 @@ body{
         min-height: 88vh;
         display: flex;
         flex-direction: column;
-        .introduction{
-            width: 100%;
-            height: 88vh;
-            display: flex;
-            .about{
-                text-align: center;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 10px 10%;
-                h1{
-                    font-size:4.2rem;
-                }
-                p{
-                    font-size: 3.2rem;
-                }
-            }
-            .ourPlace{
-                display: flex;
-                justify-content: flex-end;
-                flex-basis: 50%;
-                height: 100%;
-                img{
-                    width: auto;
-                    height: 100%;
-                }
-            }
-        }
-        .offer{
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            h1{
-                flex-basis: 20%;
-                font-size: 2.5rem;
-                margin-top: 5%;
-                text-align: center;
-            }
-            .offer-slider{
-                flex-basis:60%;
-                overflow-x: auto;
-                overflow-y: hidden;
-                padding:0 1%;
-                .offer-carousel{
-                height: 100%;
-                display: grid;
-                grid-template-columns: repeat(6, 1fr);
-                gap: 15px;
-                .offer-anchor{
-                .offer-image{
-                    cursor: pointer;
-                    width: 450px;
-                    height: 100%;   
-                    object-fit: cover;
-                    position: relative;
-                    }
-                }
-            }
-        }
-        }
         .workers{
             height: 100vh;
             width: 100%;
@@ -180,7 +117,7 @@ body{
                 }
             }
         }   
-        .register{
+        .register, .login, .visit,.user{
             display: none;
             flex-direction: column;
             width: 100%;
@@ -230,6 +167,7 @@ body{
                 }
             }
         }
+
     }
 
 }
@@ -276,5 +214,9 @@ body{
     border:5px solid #c9a227;
 }
 
-
+#welcomeMessage{
+    width:200px;
+    height: 200px;
+    font-size:20px;
+}
 
