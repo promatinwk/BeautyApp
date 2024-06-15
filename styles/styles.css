@@ -47,6 +47,10 @@ body header nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+body header nav ul li:hover {
+  border-bottom: 2px solid #c9a227;
 }
 body header nav ul li a {
   font-size: 1.8rem;
@@ -59,7 +63,8 @@ body header nav ul .registerButton {
   cursor: pointer;
   border-radius: 10px;
   border: none;
-  background-color: lightblue;
+  background-color: #fad643;
+  color: rgb(42, 15, 83);
 }
 body header .hamburgerMenu {
   display: none;
@@ -82,10 +87,15 @@ body main .workers {
 }
 body main .workers h1 {
   flex-basis: 10%;
-  font-size: 2.5rem;
+  font-size: 4rem;
   text-align: center;
   margin-top: 5%;
-  border-bottom: 1px solid black;
+  color: rgb(42, 15, 83);
+}
+body main .workers p {
+  text-align: center;
+  font-size: 18px;
+  color: rgb(42, 15, 83);
 }
 body main .workers .workers-list {
   margin-top: 5%;
@@ -114,9 +124,17 @@ body main .workers .workers-list .worker .worker-description {
   left: 0;
   padding: 0 10%;
   top: 50%;
+  left: 20%;
   font-size: 2rem;
-  border: 1px solid black;
+  width: 60%;
   display: none;
+}
+body main .workers .workers-list .worker .worker-description .closeWorkerDescription {
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 body main .register, body main .login, body main .visit, body main .user {
   display: none;
@@ -132,30 +150,28 @@ body main .register h2, body main .login h2, body main .visit h2, body main .use
   text-transform: uppercase;
   margin: 3rem;
 }
-body main .register .registerForm, body main .login .registerForm, body main .visit .registerForm, body main .user .registerForm {
+body main .register .registerForm, body main .register #loginForm, body main .register #bookingForm, body main .login .registerForm, body main .login #loginForm, body main .login #bookingForm, body main .visit .registerForm, body main .visit #loginForm, body main .visit #bookingForm, body main .user .registerForm, body main .user #loginForm, body main .user #bookingForm {
   display: flex;
   flex-direction: column;
   width: 50%;
   padding: 5% 10%;
-  border: 1px solid #0f084b;
-  border-radius: 10%;
 }
-body main .register .registerForm .formDataContainer, body main .login .registerForm .formDataContainer, body main .visit .registerForm .formDataContainer, body main .user .registerForm .formDataContainer {
+body main .register .registerForm .formDataContainer, body main .register #loginForm .formDataContainer, body main .register #bookingForm .formDataContainer, body main .login .registerForm .formDataContainer, body main .login #loginForm .formDataContainer, body main .login #bookingForm .formDataContainer, body main .visit .registerForm .formDataContainer, body main .visit #loginForm .formDataContainer, body main .visit #bookingForm .formDataContainer, body main .user .registerForm .formDataContainer, body main .user #loginForm .formDataContainer, body main .user #bookingForm .formDataContainer {
   display: flex;
   justify-content: space-between;
   margin-top: 5%;
 }
-body main .register .registerForm .formDataContainer label, body main .login .registerForm .formDataContainer label, body main .visit .registerForm .formDataContainer label, body main .user .registerForm .formDataContainer label {
+body main .register .registerForm .formDataContainer label, body main .register #loginForm .formDataContainer label, body main .register #bookingForm .formDataContainer label, body main .login .registerForm .formDataContainer label, body main .login #loginForm .formDataContainer label, body main .login #bookingForm .formDataContainer label, body main .visit .registerForm .formDataContainer label, body main .visit #loginForm .formDataContainer label, body main .visit #bookingForm .formDataContainer label, body main .user .registerForm .formDataContainer label, body main .user #loginForm .formDataContainer label, body main .user #bookingForm .formDataContainer label {
   flex-basis: 40%;
   font-size: 1.8rem;
 }
-body main .register .registerForm .formDataContainer input, body main .login .registerForm .formDataContainer input, body main .visit .registerForm .formDataContainer input, body main .user .registerForm .formDataContainer input {
+body main .register .registerForm .formDataContainer input, body main .register #loginForm .formDataContainer input, body main .register #bookingForm .formDataContainer input, body main .login .registerForm .formDataContainer input, body main .login #loginForm .formDataContainer input, body main .login #bookingForm .formDataContainer input, body main .visit .registerForm .formDataContainer input, body main .visit #loginForm .formDataContainer input, body main .visit #bookingForm .formDataContainer input, body main .user .registerForm .formDataContainer input, body main .user #loginForm .formDataContainer input, body main .user #bookingForm .formDataContainer input {
   flex-basis: 60%;
   font-size: 1.8rem;
   border-radius: 10px;
   border: 1px solid #0f084b;
 }
-body main .register .registerForm .formDataContainer #confirmRegisterForm, body main .login .registerForm .formDataContainer #confirmRegisterForm, body main .visit .registerForm .formDataContainer #confirmRegisterForm, body main .user .registerForm .formDataContainer #confirmRegisterForm {
+body main .register .registerForm .formDataContainer #confirmRegisterForm, body main .register .registerForm .formDataContainer #confirmLoginForm, body main .register #loginForm .formDataContainer #confirmRegisterForm, body main .register #loginForm .formDataContainer #confirmLoginForm, body main .register #bookingForm .formDataContainer #confirmRegisterForm, body main .register #bookingForm .formDataContainer #confirmLoginForm, body main .login .registerForm .formDataContainer #confirmRegisterForm, body main .login .registerForm .formDataContainer #confirmLoginForm, body main .login #loginForm .formDataContainer #confirmRegisterForm, body main .login #loginForm .formDataContainer #confirmLoginForm, body main .login #bookingForm .formDataContainer #confirmRegisterForm, body main .login #bookingForm .formDataContainer #confirmLoginForm, body main .visit .registerForm .formDataContainer #confirmRegisterForm, body main .visit .registerForm .formDataContainer #confirmLoginForm, body main .visit #loginForm .formDataContainer #confirmRegisterForm, body main .visit #loginForm .formDataContainer #confirmLoginForm, body main .visit #bookingForm .formDataContainer #confirmRegisterForm, body main .visit #bookingForm .formDataContainer #confirmLoginForm, body main .user .registerForm .formDataContainer #confirmRegisterForm, body main .user .registerForm .formDataContainer #confirmLoginForm, body main .user #loginForm .formDataContainer #confirmRegisterForm, body main .user #loginForm .formDataContainer #confirmLoginForm, body main .user #bookingForm .formDataContainer #confirmRegisterForm, body main .user #bookingForm .formDataContainer #confirmLoginForm {
   margin-top: 5%;
   padding: 10px;
   flex-basis: 50%;
@@ -165,6 +181,86 @@ body main .register .registerForm .formDataContainer #confirmRegisterForm, body 
   background-color: #fad643;
   color: #0f084b;
   font-weight: 500;
+  font-size: 20px;
+}
+body main .visit #bookingForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+body main .visit #bookingForm div {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+body main .visit #bookingForm div label {
+  font-size: 20px;
+}
+body main .visit #bookingForm div input, body main .visit #bookingForm div select {
+  font-size: 20px;
+  width: 40%;
+}
+body main .visit #bookingForm #bookVisitBtn {
+  margin-top: 5%;
+  padding: 10px;
+  flex-basis: 50%;
+  margin-left: 25%;
+  text-transform: uppercase;
+  border: 2px solid #c9a227;
+  background-color: #fad643;
+  color: #0f084b;
+  font-weight: 500;
+  font-size: 20px;
+}
+body footer {
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+  border-top: 1px solid rgb(42, 15, 83);
+  height: 30vh;
+}
+body footer .footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+body footer .footer-content div {
+  text-align: center;
+}
+body footer .footer-content div h4 {
+  font-size: 24px;
+  color: #c9a227;
+}
+body footer .footer-content div p {
+  font-size: 16px;
+}
+body footer .footer-content div a {
+  padding: 10px;
+}
+body footer .footer-content div a i {
+  font-size: 30px;
+  color: rgb(42, 15, 83);
+}
+body footer .footer-content div a i:hover {
+  color: #c9a227;
+}
+body footer .footer-content div ul {
+  list-style: none;
+}
+body footer .footer-content div ul li a {
+  font-size: 16px;
+  text-decoration: none;
+  color: rgb(42, 15, 83);
+}
+body footer .footer-content .contact-info p {
+  text-align: left;
+}
+body footer .footer-bottom {
+  text-align: center;
+}
+body footer .footer-bottom p {
+  font-size: 16px;
 }
 
 @media screen and (max-width: 800px) {
@@ -178,6 +274,7 @@ body main .register .registerForm .formDataContainer #confirmRegisterForm, body 
     height: 88vh;
     width: 100vw;
     background-color: #fff;
+    z-index: 100;
   }
   body header nav ul {
     flex-direction: column;
@@ -193,7 +290,38 @@ body main .register .registerForm .formDataContainer #confirmRegisterForm, body 
   body header .hamburgerMenu {
     display: block;
   }
-  body .active {
+  body .workers .workers-list {
+    flex-direction: column;
+    height: 100vh;
+  }
+  body .workers .workers-list .worker {
+    display: flex;
+    flex-basis: 20%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  body .workers .workers-list .worker .worker-description {
+    position: relative;
+    display: none;
+    z-index: 100;
+    align-items: center;
+    margin-top: 150px;
+    height: 500px;
+    background-color: white;
+  }
+  body footer {
+    position: absolute;
+    height: 50vh;
+    top: 200vh;
+  }
+  body footer .footer-content {
+    flex-direction: column;
+  }
+  body footer .footer-content .contact-info p {
+    text-align: center;
+  }
+  .active {
     display: flex;
   }
 }
@@ -205,4 +333,5 @@ body main .register .registerForm .formDataContainer #confirmRegisterForm, body 
   width: 200px;
   height: 200px;
   font-size: 20px;
+  z-index: 100;
 }/*# sourceMappingURL=styles.css.map */

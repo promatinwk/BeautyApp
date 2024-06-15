@@ -16,8 +16,6 @@
         </figure>
         <nav>
             <ul>
-                <li><a>Oferta</a></li>
-                <li><a>Kontakt</a></li>
                 <li class="visitButton"><a>Zapisz się</a></li>
                 <li class="loginButton"><a>Zaloguj</a></li>
                 <li class="registerButton">
@@ -33,41 +31,42 @@
     <main>
         <section class="workers">
             <h1>Poznaj nas</h1>
+            <p>Oto nasz cały skład. Kliknij w konkretną osobę a zobaczysz, czym dokładnie się zajmuje.</p>
             <div class="workers-list">
                 <div class="worker">
                     <p class="worker-name">Anna</p>
                     <div><img src="./assets/anna.jpg" alt="worker-photo" class="worker-photo"></div>
                     <p class="worker-profession">Manicure</p>
-                    <p class="worker-description">Z uśmiechem na twarzy i niezrównanym talentem, Anna jest naszą specjalistką od manicure, która sprawia, że Twoje dłonie
+                    <p class="worker-description"><span class="closeWorkerDescription">X</span>Z uśmiechem na twarzy i niezrównanym talentem, Anna jest naszą specjalistką od manicure, która sprawia, że Twoje dłonie
                     prezentują się perfekcyjnie. Jej kreatywność i precyzja sprawią, że zakochasz się w swoich paznokciach na nowo.</p>
                 </div>
                 <div class="worker">
                     <p class="worker-name">Katarzyna</p>
                     <img src="./assets/katarzyna.jpg" alt="worker-photo" class="worker-photo">
                     <p class="worker-profession">Guru Zabiegów Twarzy</p>
-                    <p class="worker-description">Katarzyna to nasza ekspertka od pielęgnacji skóry twarzy. Jej pasja do doskonałości i indywidualne podejście sprawiają,
+                    <p class="worker-description"><span class="closeWorkerDescription">X</span>Katarzyna to nasza ekspertka od pielęgnacji skóry twarzy. Jej pasja do doskonałości i indywidualne podejście sprawiają,
                     że każdy zabieg to niezapomniane doświadczenie. Pozwól jej zadbać o Twoją skórę i odzyskaj jej naturalny blask.</p>
                 </div>
                 <div class="worker">
+                    
                     <p class="worker-name">Julia</p>
                     <img src="./assets/julia.jpg" alt="worker-photo" class="worker-photo">
                     <p class="worker-profession">Ekspertka od Zabiegów Laserowych</p>
-                    <p class="worker-description">Szefowa oraz nasza specjalistka od najnowocześniejszych technologii w pielęgnacji skóry. Jej doświadczenie i precyzja zapewniają
+                    <p class="worker-description"><span class="closeWorkerDescription">X</span>Szefowa oraz nasza specjalistka od najnowocześniejszych technologii w pielęgnacji skóry. Jej doświadczenie i precyzja zapewniają
                     bezpieczne i efektywne zabiegi laserowe, które pozostawiają skórę gładką i promienną.</p>
-
                 </div>
                 <div class="worker">
                     <p class="worker-name">Marta</p>
                     <img src="./assets/marta.jpg" alt="worker-photo" class="worker-photo">
                     <p class="worker-profession">Mistrzyni Relaksacyjnych Kąpieli</p>
-                    <p class="worker-description">Marta tworzy magiczne doświadczenia relaksacyjne, które odprężają ciało i umysł. Jej kąpiele relaksacyjne to podróż do krainy
+                    <p class="worker-description"><span class="closeWorkerDescription">X</span>Marta tworzy magiczne doświadczenia relaksacyjne, które odprężają ciało i umysł. Jej kąpiele relaksacyjne to podróż do krainy
                     spokoju i harmonii. Pozwól sobie na chwilę luksusu w jej towarzystwie.</p>
                 </div>
                 <div class="worker">
                     <p class="worker-name">Monika</p>
                     <img src="./assets/monika.jpg" alt="worker-photo" class="worker-photo">
                     <p class="worker-profession">Specjalistka od Maseczek</p>
-                    <p class="worker-description">Monika to nasza ekspertka od maseczek, która doskonale rozumie, jak ważna jest odpowiednia pielęgnacja skóry. Jej wiedza o
+                    <p class="worker-description"><span class="closeWorkerDescription">X</span>Monika to nasza ekspertka od maseczek, która doskonale rozumie, jak ważna jest odpowiednia pielęgnacja skóry. Jej wiedza o
                     składnikach aktywnych i technikach aplikacji sprawiają, że każda maseczka to nie tylko chwila relaksu, ale także
                     intensywna terapia dla Twojej skóry. Dzięki jej profesjonalnemu podejściu i pasji do pielęgnacji, każdy zabieg staje się
                     niezapomnianym doświadczeniem, które odbudowuje, odżywia i nawilża Twoją skórę, pozostawiając ją promienną i pełną
@@ -77,27 +76,36 @@
                     <p class="worker-name">Agnieszka</p>
                     <img src="./assets/agnieszka.jpg" alt="worker-photo" class="worker-photo">
                     <p class="worker-profession">Mistrzyni Masażu</p>
-                    <p class="worker-description">Agnieszka ma magiczne dłonie, które potrafią złagodzić wszelkie napięcia i stres. Jej umiejętności masażu sprawią, że poczujesz
+                    <p class="worker-description"><span class="closeWorkerDescription">X</span>Agnieszka ma magiczne dłonie, które potrafią złagodzić wszelkie napięcia i stres. Jej umiejętności masażu sprawią, że poczujesz
                     się odprężony i w pełni zrelaksowany. Odkryj sztukę relaksacji podczas sesji z Agnieszką</p>
                 </div>
             </div>
         </section>
         <section class="user">
-            <h2>User Information</h2>
+            <h2>Dane uzytkownika</h2>
             <div id="userInfo">
                 <p class="userFirstName"></p>
                 <p class="userLastName"></p>
                 <p class="userEmail"></p>
                 <p class="userPhoneNumber"></p>
+                <div class="userProfileBtns">
+                    <button class="changeFirstName">Zmień imię</button>
+                    <button class="changeLastName">Zmień nazwisko</button>
+                    <button class="changeEmail">Zmień email</button>
+                    <button class="changePhoneNumber">Zmień numer telefonu</button>
+                    <button class="changePassword">Zmień hasło</button>
+                </div>
+            <div id="dynamicFormContainer"></div>
             </div>
-            <h2>Booked Visits</h2>
+            <h2>Rezerwacje</h2>
             <ul id="bookedVisits"></ul>
-            <div class="userProfileBtns">
-                <button class="changeFirstName">Zmień imię</button>
-                <button class="changeLastName">Zmień nazwisko</button>
-                <button class="changeEmial">Zmień email</button>
-                <button class="changePhoneNumber">Zmień numer telefonu</button>
-                <button class="changePassword">Zmień hasło</button>
+            <div id="changeVisitDateForm" style="display: none;">
+                <input type="datetime-local" id="newVisitDate" placeholder="Nowa data rezerwacji">
+                <button onclick="saveNewVisitDate()">Zapisz</button>
+            </div>
+
+            <div class="logout">
+                <button class="logoutBtn">Wyloguj się</button>
             </div>
         </section>
         <!--to do - logowanie-->
@@ -113,7 +121,7 @@
                         <input type="password" id="loginPassword">
                     </div>
                     <div class="formDataContainer">
-                        <button type="submit">Zaloguj</button>
+                        <button type="submit" id="confirmLoginForm">Zaloguj</button>
                     </div>
                 </form>
         </section>
@@ -151,7 +159,7 @@
             </form>
         </section>
         <section class="visit">
-            <h2>Book a Visit</h2>
+            <h2>Zarezerwuj wizytę</h2>
             <form id="bookingForm">
                 <div>
                     <label for="serviceSelect">Usługa: </label>
@@ -169,19 +177,46 @@
                     <label for="visitDate">Data: </label>
                     <input type="date" id="visitDate" required>
                 </div>
-                <div>
-                    <button type="submit">Zarezerwuj wizytę</button>
-                </div>
+                <button type="submit" id="bookVisitBtn">Zarezerwuj wizytę</button>
             </form>
         </section>
     </main>
+<footer>
+    <div class="footer-content">
+        <div class="contact-info">
+            <h4>Kontakt</h4>
+            <p>Adres: ul. Sportowa 12, 64-600 Oborniki</p>
+            <p>Telefon: +48 123 456 789</p>
+            <p>Email: beauty@salon.com</p>
+        </div>
 
-    <!--
-        To do:
-        -logowanie
-        -baza danych
-    -->
+        <div class="social-media">
+            <h4>Śledź nas</h4>
+            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
 
+        <div class="sitemap">
+            <ul>
+                <li><a href="/about">O nas</a></li>
+                <li><a href="/services">Usługi</a></li>
+                <li><a href="/privacy-policy">Polityka prywatności</a></li>
+                <li><a href="/terms">Regulamin</a></li>
+                <li><a href="/faq">FAQ</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 BeautySalon. Wszystkie prawa zastrzeżone.</p>
+    </div>
+</footer>
+
+
+    
 <script src="/scripts/index.js"></script>   
 </body>
 </html>

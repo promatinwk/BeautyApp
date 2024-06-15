@@ -1,3 +1,5 @@
+
+
 const hamburgerMenu = document.querySelector('.hamburgerMenu');
 const navbar = document.querySelector('nav');
 const registerBox = document.querySelector('.register');
@@ -9,14 +11,15 @@ const loginForm = document.getElementById('loginForm');
 const loginBtn = document.querySelector('.loginButton');
 const userProfileBtn = document.getElementById('welcomeMessage');
 const userProfileBox = document.querySelector('.user');
+const logoutBtn = document.querySelector('.logoutBtn');
+const closeWorkerDescBtns = document.querySelectorAll('.closeWorkerDescription');
 
 const visitBox = document.querySelector('.visit');
 const visitBtn = document.querySelector('.visitButton');
 const visitForm = document.getElementById('bookingForm');
 
-
 let formVisible = false;
-
+let selectedVisitId = null;
 
 const showMenuOnMobile = hamburgerMenu.addEventListener('click',()=>{
     navbar.classList.toggle('active');
@@ -25,8 +28,10 @@ const showRegisterForm = registerBtn.addEventListener('click',()=>{
     formVisible = !formVisible;
     if (formVisible){
         registerBox.style.display = 'flex';
+        navbar.classList.toggle('active');
     } else{
         registerBox.style.display = 'none';
+        navbar.classList.toggle('active');
     }
 })
 
@@ -34,8 +39,11 @@ const showLoginForm = loginBtn.addEventListener('click',()=>{
     formVisible = !formVisible;
     if (formVisible){
         loginBox.style.display = 'flex';
+        navbar.classList.toggle('active');
     } else{
         loginBox.style.display = 'none';
+        navbar.classList.toggle('active');
+        
     }
 })
 
@@ -43,8 +51,10 @@ const showVisitForm = visitBtn.addEventListener('click',()=>{
     formVisible = !formVisible;
     if (formVisible){
         visitBox.style.display = 'flex';
+        navbar.classList.toggle('active');
     } else{
         visitBox.style.display = 'none';
+        navbar.classList.toggle('active');
     }
 })
 
@@ -63,12 +73,108 @@ const showUserProfile = userProfileBtn.addEventListener('click', async ()=>{
      displayBookedVisits(userVisits);
 })
 
+logoutBtn.addEventListener('click',()=>{
+    logoutUser();
+})
+
+function logoutUser() {
+    // Usuwanie tokenu z localStorage
+    localStorage.removeItem('token');
+    
+    // Przekierowanie do strony logowania lub głównej
+    window.location.href = '/'; // Zmień na odpowiednią stronę
+}
+
+document.querySelector('.changeFirstName').addEventListener('click', () => {
+    displayForm('firstName', 'Zmień imię', 'updateFirstName');
+});
+document.querySelector('.changeLastName').addEventListener('click', () => {
+    displayForm('lastName', 'Zmień nazwisko', 'updateLastName');
+});
+document.querySelector('.changeEmail').addEventListener('click', () => {
+    displayForm('email', 'Zmień email', 'updateEmail');
+});
+document.querySelector('.changePhoneNumber').addEventListener('click', () => {
+    displayForm('phoneNumber', 'Zmień numer telefonu', 'updatePhoneNumber');
+});
+document.querySelector('.changePassword').addEventListener('click', () => {
+    displayPasswordForm();
+});
+
+
+function displayForm(field, placeholder, endpoint) {
+    const formContainer = document.getElementById('dynamicFormContainer');
+    formContainer.innerHTML = `
+        <form id="updateForm">
+            <label for="${field}">${placeholder}</label>
+            <input type="text" id="${field}" name="${field}" placeholder="${placeholder}">
+            <button type="submit">Zaktualizuj</button>
+        </form>
+    `;
+
+    document.getElementById('updateForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const value = document.getElementById(field).value;
+        await updateUserProfile({ [field]: value }, endpoint);
+    });
+}
+
+function displayPasswordForm() {
+    const formContainer = document.getElementById('dynamicFormContainer');
+    formContainer.innerHTML = `
+        <form id="updatePasswordForm">
+            <label for="oldPassword">Stare hasło</label>
+            <input type="password" id="oldPassword" name="oldPassword" placeholder="Stare hasło">
+            <label for="newPassword">Nowe hasło</label>
+            <input type="password" id="newPassword" name="newPassword" placeholder="Nowe hasło">
+            <button type="submit">Zaktualizuj hasło</button>
+        </form>
+    `;
+
+    document.getElementById('updatePasswordForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const oldPassword = document.getElementById('oldPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+        await updateUserProfile({ oldPassword, newPassword }, 'updatePassword');
+    });
+}
+
+
+
+async function updateUserProfile(data, endpoint) {
+    const user = await fetchUserData();
+    const userId = user._id;
+    
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`http://localhost:3000/users/${endpoint}/${userId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        alert('Dane zostały zaktualizowane!');
+        // Optionally, you can refresh the user profile information here
+    } catch (error) {
+        alert('Wystąpił błąd podczas aktualizacji danych: ' + error.message);
+    }
+}
+
 
 let currentWorker = null;
 
 workers.forEach((worker)=>{
     let workerPhoto = worker.querySelector('.worker-photo');
     let workerDescription = worker.querySelector('.worker-description');
+    let closeDescription = worker.querySelector('.closeWorkerDescription');
         workerPhoto.addEventListener('click', () => {
         // Jeśli wcześniej był wybrany inny pracownik, ukryj jego opis
         if (currentWorker !== null) {
@@ -82,8 +188,21 @@ workers.forEach((worker)=>{
         currentWorker.description.style.display = 'flex';
         currentWorker.photo.classList.add('selected-worker');
     });
+
+    closeDescription.addEventListener('click', (event) => {
+        // Ukryj opis pracownika
+        workerDescription.style.display = 'none';
+        workerPhoto.classList.remove('selected-worker');
+
+        // Zresetuj aktualnie wybranego pracownika
+        currentWorker = null;
+
+        // Zatrzymaj propagację zdarzenia, aby kliknięcie nie uruchamiało innych nasłuchiwaczy
+        event.stopPropagation();
+    });
     
 })
+
 
 
 registerForm.addEventListener('submit', async(e)=>{
@@ -135,6 +254,7 @@ loginForm.addEventListener('submit', async (e) => {
         alert('Logowanie udane!');
         // Przekieruj użytkownika na inną stronę lub wykonaj inne akcje po zalogowaniu
         window.location.href = '/'; // Przykładowe przekierowanie na stronę główną po zalogowaniu
+        
     } catch (error) {
         console.error('Błąd logowania:', error.message);
         // Wyświetl komunikat o błędzie na stronie
@@ -252,8 +372,9 @@ visitBtn.addEventListener('click', async ()=>{
     
     const userProfile = await fetchUserData();
     if (!userProfile) {
-               alert('Nie udało się pobrać profilu użytkownika'); // Komunikat o błędzie, jeśli nie uda się pobrać profilu
-                return; // Zatrzymuje dalsze wykonywanie kodu, jeśli nie uda się pobrać profilu
+               alert('Nie jesteś zalogowany. Tylko zalogowani uzytkownicy moga zapisywac sie na wizyty.');
+               window.location.href = '/';
+               return; 
             }
     
      document.getElementById('serviceSelect').addEventListener('change', (event) => {
@@ -308,6 +429,104 @@ function displayBookedVisits(bookedVisits) {
         const date = new Date(visit.date);
         const formattedDate = date.toLocaleDateString('pl-PL'); 
         visitItem.textContent = `Kosmetyczka: ${visit.worker.firstName} ${visit.worker.lastName}, Data rezerwacji: ${formattedDate}`;
+        // Przyciski do zmiany daty rezerwacji i anulowania rezerwacji
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.classList.add('userVisitsBtns');
+
+        const changeDateButton = document.createElement('button');
+        changeDateButton.classList.add('changeDate');
+        changeDateButton.textContent = 'Zmień datę rezerwacji';
+        changeDateButton.onclick = () => showChangeDateForm(visit._id);
+
+        const cancelVisitButton = document.createElement('button');
+        cancelVisitButton.classList.add('cancelVisit');
+        cancelVisitButton.textContent = 'Anuluj rezerwację';
+        cancelVisitButton.onclick = () => cancelVisit(visit._id);
+
+        // Dodanie przycisków do kontenera przycisków
+        buttonsDiv.appendChild(changeDateButton);
+        buttonsDiv.appendChild(cancelVisitButton);
+
+        // Dodanie kontenera przycisków do elementu listy
+        visitItem.appendChild(buttonsDiv);
+
+        // Dodanie elementu listy do listy zarezerwowanych wizyt
         bookedVisitsList.appendChild(visitItem);
-    });
+    
+    });    
+}
+
+
+function showChangeDateForm(visitId) {
+    selectedVisitId = visitId;
+    document.getElementById('changeVisitDateForm').style.display = 'block';
+}
+
+
+async function saveNewVisitDate() {
+    const newDate = document.getElementById('newVisitDate').value;
+    if (!newDate) {
+        alert('Proszę wybrać nową datę rezerwacji');
+        return;
+    }
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert('Brak tokena autoryzacyjnego');
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:3000/visits/updateVisitDate/${selectedVisitId}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ newDate })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorData.message}`);
+        }
+
+        const updatedVisit = await response.json();
+        alert('Data rezerwacji zaktualizowana pomyślnie');
+        document.getElementById('changeVisitDateForm').style.display = 'none';
+
+        // Aktualizacja listy zarezerwowanych wizyt po zmianie daty
+        fetchUserVisits().then(displayBookedVisits);
+    } catch (error) {
+        alert(`Nie udało się zaktualizować daty rezerwacji: ${error.message}`);
+    }
+}
+
+async function cancelVisit(visitId) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert('Brak tokena autoryzacyjnego');
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:3000/visits/cancelVisit/${visitId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorData.message}`);
+        }
+
+        alert('Rezerwacja została anulowana');
+        
+        // Aktualizacja listy zarezerwowanych wizyt po anulowaniu rezerwacji
+        fetchUserVisits().then(displayBookedVisits);
+    } catch (error) {
+        alert(`Nie udało się anulować rezerwacji: ${error.message}`);
+    }
 }

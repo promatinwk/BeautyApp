@@ -43,19 +43,26 @@ body{
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    cursor: pointer;
+                    &:hover{
+                        border-bottom: 2px solid #c9a227;
+                    }
                     a{
                         font-size: 1.8rem;
                         cursor: pointer;
                         flex-basis: 100%;
                         text-align: center;
                     }
+                   
                 }
+                
                 .registerButton {
                     font-size: 1.8rem;
                     cursor: pointer;
                     border-radius: 10px;
                     border: none;
-                    background-color: lightblue;
+                    background-color: #fad643;
+                    color:rgb(42, 15, 83);
                     }
             }
         }
@@ -80,10 +87,15 @@ body{
             flex-direction: column;
             h1{
                 flex-basis: 10%;
-                font-size: 2.5rem;
+                font-size: 4rem;
                 text-align: center;
                 margin-top:5%;
-                border-bottom: 1px solid black;
+                color: rgb(42, 15, 83);
+            }
+            p{
+                text-align: center;
+                font-size: 18px;
+                color: rgb(42, 15, 83);
             }
             .workers-list{
                 margin-top: 5%;
@@ -110,14 +122,22 @@ body{
                         left: 0;
                         padding: 0 10%;
                         top: 50%;
+                        left:calc(80% - 60%);
                         font-size: 2rem;
-                        border: 1px solid black;
+                        width: 60%;
                         display: none;
+                        .closeWorkerDescription{
+                            font-size: 20px;
+                            font-weight: 600;
+                            position: absolute;
+                            right: 10px;
+                            top: 10px;
+                        }
                     }
                 }
             }
         }   
-        .register, .login, .visit,.user{
+        .register, .login, .visit, .user{
             display: none;
             flex-direction: column;
             width: 100%;
@@ -130,13 +150,11 @@ body{
                 text-transform: uppercase;
                 margin: 3rem;
             }
-            .registerForm{
+            .registerForm,#loginForm, #bookingForm{
                 display: flex;
                 flex-direction: column;
                 width:50%;
                 padding: 5% 10%;
-                border: 1px solid #0f084b;
-                border-radius: 10%;
                 .formDataContainer{
                     display: flex;
                     justify-content: space-between;
@@ -152,7 +170,7 @@ body{
                         border:1px solid #0f084b;
                         
                     }
-                    #confirmRegisterForm{
+                    #confirmRegisterForm, #confirmLoginForm{
                             margin-top: 5%;
                             padding: 10px;
                             flex-basis:50%;
@@ -162,17 +180,107 @@ body{
                             background-color: #fad643;
                             color: #0f084b;
                             font-weight: 500;
+                            font-size: 20px;
                         }
 
                 }
             }
         }
 
+        .visit{
+            #bookingForm{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                div{
+                    width: 50%;
+                    display: flex;
+                    justify-content: space-between;
+                    label{
+                        font-size: 20px;
+                    }
+                    input, select{
+                        font-size: 20px;
+                        width: 40%;
+                    }
+                }
+                #bookVisitBtn{
+                   margin-top: 5%;
+                   padding: 10px;
+                   flex-basis: 50%;
+                   margin-left: 25%;
+                   text-transform: uppercase;
+                   border: 2px solid #c9a227;
+                   background-color: #fad643;
+                   color: #0f084b;
+                   font-weight: 500;
+                   font-size: 20px;
+                }
+            }
+        }
+
+
+    }
+    footer {
+        position: absolute;
+        top: 100vh;
+        width: 100%;
+        border-top: 1px solid rgb(42, 15, 83);
+        height: 30vh;
+        .footer-content{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            div{
+                text-align: center;
+                h4{
+                    font-size: 24px;
+                    color: #c9a227;
+                }
+                p{
+                font-size:16px;
+                }
+                
+                a{
+                   padding: 10px;
+                    i{
+                    font-size: 30px;
+                    color: rgb(42, 15, 83);
+                    &:hover{
+                        color: #c9a227;
+                    }
+                    }
+                }
+                ul{
+                    list-style: none;
+                    li{
+                        a{
+                        font-size: 16px; 
+                        text-decoration: none;
+                        color:rgb(42, 15, 83);
+                        }
+                    }
+                }
+            }
+            .contact-info{
+                p{
+                    text-align: left;
+                }
+            }
+        }
+        .footer-bottom{
+            text-align: center;
+            p{
+            font-size: 16px;
+            }
+        }
     }
 
 }
 @media screen and (max-width: 800px){
     body{
+       
         header{
             padding: 0px 0px;
             nav {
@@ -182,6 +290,7 @@ body{
                 height: 88vh;
                 width: 100vw;
                 background-color: #fff;
+                z-index: 100;
                 ul {
                     flex-direction: column;
                     align-items: center;
@@ -198,13 +307,52 @@ body{
             .hamburgerMenu{
                 display: block;
             }
+            }        
+        .workers{
+            .workers-list{
+                flex-direction: column;
+                height: 100vh;
+                .worker{
+                    display: flex;
+                    flex-basis: 20%;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
+                    .worker-description {
+                            position: relative;
+                            display: none;
+                            z-index: 100;
+                            align-items: center;
+                            margin-top: 150px;
+                            height: 500px;
+                            background-color: white;
+                        
+                        }
+                }
             }
-
+        }
+        footer{
+            position: absolute;
+            height: 50vh;
+            .footer-content{
+                flex-direction: column;
+                .contact-info{
+                    p{
+                    text-align: center;
+                    }
+                }
+            }
+            top:200vh;
+        }
+    
+    }
+        
         .active{
             display: flex;
         }
-        }
-    }      
+
+}
+     
 
 
 //helpers
@@ -218,5 +366,6 @@ body{
     width:200px;
     height: 200px;
     font-size:20px;
+    z-index: 100;
 }
 
