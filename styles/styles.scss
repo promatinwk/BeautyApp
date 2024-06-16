@@ -20,6 +20,7 @@ body{
         figure{
             height: 80%;
             flex-grow: 1;
+            cursor: pointer;
             img{
                 height: 100%;
             }
@@ -80,6 +81,122 @@ body{
         min-height: 88vh;
         display: flex;
         flex-direction: column;
+                .user {
+                        height: 200vh !important;
+                
+                        #userInfo,
+                        #bookedVisits {
+                            li {
+                                list-style: none;
+                
+                                .userVisitsBtns {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                
+                                    button {
+                                        margin-top: 5%;
+                                        height: 50px;
+                                        font-size: 1.8rem;
+                                        cursor: pointer;
+                                        border-radius: 10px;
+                                        width: 50%;
+                                        border: none;
+                                        background-color: #fad643;
+                                        color: rgb(42, 15, 83);
+                                    }
+                                }
+                            }
+                
+                            p,
+                            li {
+                                font-size: 16px;
+                            }
+                
+                            .userProfileBtns {
+                                display: flex;
+                                flex-direction: row;
+                
+                                button {
+                                    margin-top: 5%;
+                                    height: 50px;
+                                    width: 200px;
+                                    margin-left: 5%;
+                                    font-size: 1.8rem;
+                                    cursor: pointer;
+                                    border-radius: 10px;
+                                    border: none;
+                                    background-color: #fad643;
+                                    color: rgb(42, 15, 83);
+                                }
+                            }
+                
+                            #dynamicFormContainer {
+                
+                                #updateForm,
+                                #updatePasswordForm {
+                                    display: flex ;
+                                    flex-direction: column ;
+                
+                                    label,
+                                    input,
+                                    select {
+                                        font-size: 16px;
+                                        width: 30%;
+                                        align-self: center;
+                                        margin-top: 10px;
+                                    }
+                
+                                    button {
+                                        margin-top: 5%;
+                                        height: 50px;
+                                        width: 40%;
+                                        align-self: center;
+                                        font-size: 1.8rem;
+                                        cursor: pointer;
+                                        border-radius: 10px;
+                                        border: none;
+                                        background-color: rgb(42, 15, 83);
+                                        color: #fad643;
+                                    }
+                                }
+                            }
+                        }
+                
+                        #changeVisitDateForm {
+                
+                            label,
+                            input,
+                            select {
+                                font-size: 16px;
+                            }
+                
+                            button {
+                                margin-top: 5%;
+                                height: 50px;
+                                width: 100px;
+                                font-size: 1.8rem;
+                                cursor: pointer;
+                                border-radius: 10px;
+                                border: none;
+                                background-color: rgb(42, 15, 83);
+                                color: #fad643;
+                            }
+                        }
+                
+                        .logout {
+                            .logoutBtn {
+                                margin-top: 5%;
+                                height: 50px;
+                                font-size: 1.8rem;
+                                cursor: pointer;
+                                border-radius: 10px;
+                                border: none;
+                                background-color: rgb(42, 15, 83);
+                                color: #fad643;
+                            }
+                        }
+                    }
         .workers{
             height: 100vh;
             width: 100%;
@@ -181,6 +298,7 @@ body{
                             color: #0f084b;
                             font-weight: 500;
                             font-size: 20px;
+                            border-radius: 10px;
                         }
 
                 }
@@ -201,17 +319,19 @@ body{
                     }
                     input, select{
                         font-size: 20px;
-                        width: 40%;
+                        width: 200px;
+                        box-sizing: border-box;
                     }
                 }
                 #bookVisitBtn{
                    margin-top: 5%;
                    padding: 10px;
                    flex-basis: 50%;
-                   margin-left: 25%;
+                   //margin-left: 25%;
                    text-transform: uppercase;
                    border: 2px solid #c9a227;
                    background-color: #fad643;
+                   border-radius: 10px;
                    color: #0f084b;
                    font-weight: 500;
                    font-size: 20px;
@@ -278,7 +398,8 @@ body{
     }
 
 }
-@media screen and (max-width: 800px){
+
+@media all and (max-width: 800px){
     body{
        
         header{
@@ -307,7 +428,103 @@ body{
             .hamburgerMenu{
                 display: block;
             }
-            }        
+            }
+        main{
+        .user{
+            height: 200vh !important;
+            #userInfo, #bookedVisits{
+                li{
+                    list-style:none;
+                    .userVisitsBtns{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        button{
+                        margin-top: 5%;
+                            height: 50px;
+                            font-size: 1.8rem;
+                            cursor: pointer;
+                            border-radius: 10px;
+                            width: 50%;
+                            border: none;
+                            background-color: #fad643;
+                            color: rgb(42, 15, 83);
+                        }
+                    }
+                }
+                p,li{
+                    font-size: 16px;
+                }
+                .userProfileBtns{
+                    display: flex;
+                    flex-direction: column;
+                    button{
+                        margin-top: 5%;
+                        height: 50px;
+                        font-size: 1.8rem;
+                        cursor: pointer;
+                        border-radius: 10px;
+                        border: none;
+                        background-color: #fad643;
+                        color: rgb(42, 15, 83);
+                    }
+                }
+               
+                #dynamicFormContainer{
+                    #updateForm, #updatePasswordForm{
+                        display: flex !important;
+                        flex-direction: column !important;
+                        label,input,select{
+                            font-size: 16px;
+                            width: 200px;
+                        }
+                        button{
+                           margin-top: 5%;
+                            height: 50px;
+                            width: 200px;
+                            font-size: 1.8rem;
+                            cursor: pointer;
+                            border-radius: 10px;
+                            border: none;
+                            background-color:rgb(42, 15, 83);
+                            color: #fad643;
+                        }
+                    }
+                }
+            }
+                         #changeVisitDateForm {
+            
+                             label,
+                             input,
+                             select {
+                                 font-size: 16px;
+                             }
+            
+                             button {
+                                 margin-top: 5%;
+                                 height: 50px;
+                                 width: 100px;
+                                 font-size: 1.8rem;
+                                 cursor: pointer;
+                                 border-radius: 10px;
+                                 border: none;
+                                 background-color: rgb(42, 15, 83);
+                                 color: #fad643;
+                             }
+                         }
+            .logout{
+                .logoutBtn{
+                    margin-top: 5%;
+                    height: 50px;
+                    font-size: 1.8rem;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    border: none;
+                    background-color: rgb(42, 15, 83);
+                    color: #fad643;
+                }
+            }
+        }       
         .workers{
             .workers-list{
                 flex-direction: column;
@@ -319,7 +536,8 @@ body{
                     align-items: center;
                     position: relative;
                     .worker-description {
-                            position: relative;
+                            left: 0;
+                            width: 100%;
                             display: none;
                             z-index: 100;
                             align-items: center;
@@ -331,6 +549,71 @@ body{
                 }
             }
         }
+        .login{
+            #loginForm{
+                width: 80% !important;
+            .formDataContainer {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-top: 5%;
+                    label {
+                        flex-basis: 40%;
+                        font-size: 1.8rem;
+                    }
+            
+                    input {
+                        flex-basis: 60%;
+                        font-size: 1.8rem;
+                        border-radius: 10px;
+                        border: 1px solid #0f084b;
+            
+                    }
+                    #confirmLoginForm{
+                        margin-left: 0 !important;
+                    }
+            }
+        }
+        }
+        .register{
+        .registerForm {
+                width: 80% !important;
+        
+                .formDataContainer {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-top: 5%;
+        
+                    label {
+                        flex-basis: 40%;
+                        font-size: 1.8rem;
+                    }
+        
+                    input {
+                        flex-basis: 60%;
+                        font-size: 1.8rem;
+                        border-radius: 10px;
+                        border: 1px solid #0f084b;
+        
+                    }
+        
+                    #confirmRegisterForm {
+                        margin-left: 0 !important;
+                    }
+                }
+            }
+        }
+        .visit{
+            #bookingForm{
+               div{
+                flex-direction: column;
+                width: 80%;
+               }
+               
+            }
+        }
+    }
         footer{
             position: absolute;
             height: 50vh;
@@ -344,6 +627,7 @@ body{
             }
             top:200vh;
         }
+
     
     }
         
@@ -364,7 +648,6 @@ body{
 
 #welcomeMessage{
     width:200px;
-    height: 200px;
     font-size:20px;
     z-index: 100;
 }

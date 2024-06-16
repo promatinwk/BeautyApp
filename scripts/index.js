@@ -13,6 +13,7 @@ const userProfileBtn = document.getElementById('welcomeMessage');
 const userProfileBox = document.querySelector('.user');
 const logoutBtn = document.querySelector('.logoutBtn');
 const closeWorkerDescBtns = document.querySelectorAll('.closeWorkerDescription');
+const logo = document.querySelector('.logoContainer');
 
 const visitBox = document.querySelector('.visit');
 const visitBtn = document.querySelector('.visitButton');
@@ -24,47 +25,44 @@ let selectedVisitId = null;
 const showMenuOnMobile = hamburgerMenu.addEventListener('click',()=>{
     navbar.classList.toggle('active');
 })
-const showRegisterForm = registerBtn.addEventListener('click',()=>{
-    formVisible = !formVisible;
-    if (formVisible){
-        registerBox.style.display = 'flex';
-        navbar.classList.toggle('active');
-    } else{
-        registerBox.style.display = 'none';
-        navbar.classList.toggle('active');
-    }
-})
 
-const showLoginForm = loginBtn.addEventListener('click',()=>{
-    formVisible = !formVisible;
-    if (formVisible){
-        loginBox.style.display = 'flex';
-        navbar.classList.toggle('active');
-    } else{
-        loginBox.style.display = 'none';
-        navbar.classList.toggle('active');
-        
-    }
-})
+document.addEventListener('DOMContentLoaded', function() {
 
-const showVisitForm = visitBtn.addEventListener('click',()=>{
-    formVisible = !formVisible;
-    if (formVisible){
-        visitBox.style.display = 'flex';
-        navbar.classList.toggle('active');
-    } else{
-        visitBox.style.display = 'none';
-        navbar.classList.toggle('active');
-    }
-})
+        function hideAllInfos() {
+            visitBox.style.display = 'none';
+            loginBox.style.display = 'none';
+            registerBox.style.display = 'none';
+            userProfileBox.style.display='none';
+            
+        }
+
+        visitBtn.addEventListener('click', function() {
+            hideAllInfos();
+            visitBox.style.display = 'flex';
+            navbar.classList.toggle('active');
+        });
+
+        loginBtn.addEventListener('click', function() {
+            hideAllInfos();
+            loginBox.style.display = 'flex';
+            navbar.classList.toggle('active');
+        });
+
+        registerBtn.addEventListener('click', function() {
+            hideAllInfos();
+            registerBox.style.display = 'flex';
+            navbar.classList.toggle('active');
+        });
+        userProfileBtn.addEventListener('click', function() {
+            hideAllInfos();
+            userProfileBox.style.display = 'flex';
+            navbar.classList.toggle('active');
+        });
+    });
+
+
 
 const showUserProfile = userProfileBtn.addEventListener('click', async ()=>{
-    formVisible = !formVisible;
-    if (formVisible){
-        userProfileBox.style.display = 'flex';
-    } else{
-        userProfileBox.style.display = 'none';
-    }
 
     const userData = await fetchUserData();
     const userVisits = await fetchUserVisits();
@@ -84,6 +82,13 @@ function logoutUser() {
     // Przekierowanie do strony logowania lub głównej
     window.location.href = '/'; // Zmień na odpowiednią stronę
 }
+
+const ClickOnLogo = logo.addEventListener('click',()=>{
+    userProfileBox.style.display = 'none';
+    visitBox.style.display = 'none';
+    registerBox.style.display = 'none';
+    loginBox.style.display = 'none';
+})
 
 document.querySelector('.changeFirstName').addEventListener('click', () => {
     displayForm('firstName', 'Zmień imię', 'updateFirstName');
@@ -223,9 +228,16 @@ registerForm.addEventListener('submit', async(e)=>{
         },
         body: JSON.stringify({ firstName, lastName, username, password, phoneNumber, email })
     });
+    if (response) {
+        alert('Udana rejestracja! Zaloguj się')
+        window.location.href = '/';
+    } else{
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
 
     const data = await response.json();
     console.log(data);
+    
     
 })
 
